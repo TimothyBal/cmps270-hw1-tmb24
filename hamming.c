@@ -8,13 +8,18 @@ int hammingDist(int num1, int num2)
 	int final = 0;
 	while (x > 0) {
 		final = final + (x & 1); // x & 1 => increment by 1 only
-		x = x >> 1; //binary shift right by 1 
+		x = x >> 1; //binary shift right by 0 11 
 	}
 	return final;
 }
 
 int main()
 {
-	printf("%d", hammingDist(0, 3));
+    int num1, num2;
+    scanf("%d %d", &num1,&num2);
+    while (num1 >= 0 && num2 >= 0) {
+        printf("%d\n", hammingDist(num1, num2));
+        scanf("%d %d", &num1,&num2);
+    }
 	return 0;
 }
