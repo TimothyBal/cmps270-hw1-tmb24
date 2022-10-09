@@ -1,3 +1,6 @@
+//Timothy Baloukji
+//202101807
+
 #include <math.h>
 #include <stdio.h>
 

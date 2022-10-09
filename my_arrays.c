@@ -1,3 +1,6 @@
+//Timothy Baloukji
+//202101807
+
 #define SIZE 10
 #include <stdio.h>
 
@@ -9,9 +12,9 @@ void arrayHistogram(int arr[]) {
         i++;
     }
     i =0;
-    printf("Value\tFrequency\tHistogram\n");
+    printf("Value    Frequency    Histogram\n");
     while (i < 3) {
-        printf("%d\t%d\t\t", i+1, frequencyArr[i]);
+        printf("%d        %d            ", i+1, frequencyArr[i]);
         for(int j=0; j<frequencyArr[i]; j++) {
             printf("*");
         }
@@ -22,9 +25,9 @@ void arrayHistogram(int arr[]) {
 
 void printArray(int arr[]) {
     int i=0;
-    printf("Index\tValue\n");
+    printf("Index    Value\n");
     while (i < SIZE) {
-        printf("    %d\t    %d\n", i, arr[i]);
+        printf("    %d        %d\n", i, arr[i]);
         i++;
     }
 }
@@ -35,6 +38,7 @@ void swapValues(int arr[], int i1, int i2) {
     arr[i2] = temp;
 }
 
+// keep traversing until there is no pair such that for i < j, arr[ i ] > arr[ j ],
 void bubbleSort(int arr[]) {
     for(int i=0; i<SIZE-1; i++) {
         for(int j=0; j<SIZE-1; j++) {
@@ -44,13 +48,15 @@ void bubbleSort(int arr[]) {
     }
 }
 
+//average of elements in the middle (can return a float if array is of odd size)
 float median(int arr[]) {
-    if(SIZE%2==0)
-        return (arr[SIZE/2-1] + arr[SIZE/2])/2;
-    else 
+    if(SIZE%2!=0)
         return arr[(SIZE-1)/2];
+    else 
+        return (arr[SIZE/2-1] + arr[SIZE/2])/2;
 }
 
+// return the element with maximum frequency
 int mode(int arr[]) {
     int max = 0;
     int frequency[3] = {0};
@@ -66,6 +72,7 @@ int mode(int arr[]) {
     return max;
 }
 
+// check if the next element (i+1) is greater than i
 int isSorted(int arr[], int n) {
     int answer = 1;
     for(int i=0; i<n-1; i++) {
@@ -86,10 +93,10 @@ int main() {
     printf("swapped : \n%d %d\n", arr[2], arr[5]);
     bubbleSort(arr);
     float MEDIAN = median(arr);
-    printf("median of array - %.2f\n", MEDIAN);
+    printf("median : %.2f\n", MEDIAN);
     
     int MODE = mode(arr);
-    printf("mode of the array - %d\n", MODE);
+    printf("mode : %d\n", MODE);
     
     int sorted = isSorted(arr, SIZE);
     if(sorted) {
