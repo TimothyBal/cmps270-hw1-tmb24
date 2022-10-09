@@ -1,3 +1,6 @@
+//Timothy Baloukji
+//202101807
+
 #include <stdio.h>
 
 // calculates hamming distance
