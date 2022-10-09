@@ -1,14 +1,5 @@
-#include <stdio.h>
 #define SIZE 10
-
-void printArray(int arr[]) {
-    int i=0;
-    printf("Index\tValue\n");
-    while (i < SIZE) {
-        printf("    %d\t    %d\n", i, arr[i]);
-        i++;
-    }
-}
+#include <stdio.h>
 
 void arrayHistogram(int arr[]) {
     int frequencyArr[3] = {0}; //frequency array
@@ -25,6 +16,15 @@ void arrayHistogram(int arr[]) {
             printf("*");
         }
         printf("\n");
+        i++;
+    }
+}
+
+void printArray(int arr[]) {
+    int i=0;
+    printf("Index\tValue\n");
+    while (i < SIZE) {
+        printf("    %d\t    %d\n", i, arr[i]);
         i++;
     }
 }
@@ -76,18 +76,15 @@ int isSorted(int arr[], int n) {
 }
 
 int main() {
-    int arr[SIZE] = {3,2,3,1,2,1,2,1,1,3};
+    int arr[SIZE] = {3,1,2,1,2,1,2,1,1,3};
 
     printArray(arr);
-    
     arrayHistogram(arr);
     
-    printf("before swap \n%d %d\n", arr[2], arr[5]);
+    printf("\n%d %d\n", arr[2], arr[5]);
     swapValues(arr, 2, 5);
-    printf("after swap \n%d %d\n", arr[2], arr[5]);
-    
+    printf("swapped : \n%d %d\n", arr[2], arr[5]);
     bubbleSort(arr);
-    
     float MEDIAN = median(arr);
     printf("median of array - %.2f\n", MEDIAN);
     
@@ -95,10 +92,11 @@ int main() {
     printf("mode of the array - %d\n", MODE);
     
     int sorted = isSorted(arr, SIZE);
-    if(sorted)
-        printf("array is sorted\n");
+    if(sorted) {
+        printf("sorted\n");
+        printArray(arr);
+    }
     else
-        printf("array is not sorted\n");
-    
+        printf("not sorted\n");
     return 0;
 }
